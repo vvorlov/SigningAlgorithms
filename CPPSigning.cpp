@@ -30,7 +30,7 @@ std::string ecdsaSha1(unsigned char * Sign,const unsigned char * PrivateKey){
 	BIGNUM *pKey;
 	pKey=BN_new();
 	
-	unsigned char *sign;
+	unsigned char *sign = new unsigned char();
 	strcpy((char*)sign,keyStr.c_str());
 	BN_bin2bn(sign, keyStr.length(), pKey);
 	EC_KEY_set_private_key(eckey,pKey);
